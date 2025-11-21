@@ -105,6 +105,44 @@ Once running, you may ask natural language questions such as:
 
 ---
 
+
+## 🧪 Testing with Agents Playground (teamsapptester)
+
+### Understand Agents Playground
+
+Agents Playground is an npm package that provides a CLI command called **`teamsapptester`**.
+When running:
+
+```bash
+teamsapptester start
+```
+
+It launches a local web app that simulates a Teams or Web Chat client. This removes the need for live cloud deployment during development.
+
+The simulation includes:
+
+* Mock Bot Framework service
+* Mock conversation context
+* Ability to test agent behaviors locally
+
+No cloud resources are required.
+
+### Connecting Your App to Agents Playground
+
+To use your Python agent application with the testing UI, you must provide a **message endpoint**, which acts as the link between the web UI and your running bot server.
+
+There are three ways to set the endpoint:
+
+| Method                   | How to Use                                                                     |
+| ------------------------ | ------------------------------------------------------------------------------ |
+| **Environment variable** | `BOT_ENDPOINT=http://localhost:3978/api/messages`                              |
+| **CLI parameter**        | `teamsapptester start --app-endpoint http://localhost:3978/api/messages`       |
+| **Use default**          | Default endpoint if nothing is provided → `http://localhost:3978/api/messages` |
+
+Ensure your app is running and listening on that endpoint before launching the playground.
+
+---
+
 ## 🧠 How It Works
 
 * The **Gemini model** (via google_genai) interprets user intent.
